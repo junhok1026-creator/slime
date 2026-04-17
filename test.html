@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link rel="manifest" href="manifest.json">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슬라임 머지 게임</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <div id="left-column">
+            <div id="score-board"><span id="gold">0</span> G</div>
+            <button id="summon-btn">소환</button>
+            <div id="upgrade-zone">
+                <div id="upgrade-title">소환 레벨: <span id="summon-lv-text">1</span></div>
+                <div id="prob-info">로딩중...</div>
+                <button id="upgrade-btn">50 G 강화</button>
+            </div>
+        </div>
+        
+        <div id="center-column">
+            <div id="top-tabs">
+                <div id="sell-zone" class="tab-zone">주문 불러오는 중...</div>
+                <div id="deploy-zone" class="tab-zone">전투 배치<br><span style="font-size:12px; font-weight:normal;">(드래그하여 공격)</span></div>
+            </div>
+            
+            <div id="battle-section">
+                <div id="field">
+                    <div id="field-title">⚔️ 전투 필드</div>
+                    <div id="enemy-container">
+                        <div id="enemy-hp-bar">
+                            <div id="enemy-hp-fill"></div>
+                            <div id="enemy-hp-text">100 / 100</div>
+                        </div>
+                        <div id="enemy"></div>
+                    </div>
+                </div>
+                <div id="battle-log">전투가 시작되었습니다.</div>
+            </div>
+
+            <div id="board"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

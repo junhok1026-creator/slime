@@ -1,0 +1,102 @@
+/* style.css */
+body { 
+    font-family: sans-serif; display: flex; justify-content: center; 
+    background-color: #f8f9fa; margin-top: 40px; overflow-x: hidden; 
+}
+
+#game-container { display: flex; gap: 30px; align-items: flex-start; }
+
+#left-column { display: flex; flex-direction: column; gap: 15px; align-items: center; }
+#score-board {
+    width: 140px; font-size: 20px; font-weight: bold; color: #d35400; 
+    background-color: #f1c40f; padding: 15px 0; border-radius: 10px;
+    text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 2px solid #e67e22;
+}
+#summon-btn {
+    width: 144px; height: 90px; font-size: 20px; font-weight: bold;
+    background-color: #2ecc71; color: white; border: none; border-radius: 15px;
+    cursor: pointer; box-shadow: 0 6px 0 #27ae60; position: relative; z-index: 10;
+}
+#summon-btn:active { transform: translateY(6px); box-shadow: 0 0 0 #27ae60; }
+
+#upgrade-zone {
+    width: 124px; background-color: #ecf0f1; border-radius: 10px; padding: 10px;
+    text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); border: 2px solid #bdc3c7;
+}
+#upgrade-btn {
+    width: 100%; padding: 8px 0; background-color: #3498db; color: white; border: none;
+    border-radius: 8px; font-weight: bold; font-size: 13px; cursor: pointer; box-shadow: 0 4px 0 #2980b9;
+}
+#upgrade-btn:disabled { background-color: #95a5a6; box-shadow: 0 4px 0 #7f8c8d; cursor: not-allowed; }
+
+#center-column { display: flex; flex-direction: column; gap: 15px; }
+#top-tabs { display: flex; justify-content: space-between; width: 715px; }
+.tab-zone {
+    width: 345px; height: 75px; border-radius: 10px; display: flex; flex-direction: column;
+    justify-content: center; align-items: center; font-size: 16px; font-weight: bold; color: white;
+}
+#sell-zone { background-color: #3498db; border: 3px dashed #2980b9; }
+#deploy-zone { background-color: #9b59b6; border: 3px dashed #8e44ad; }
+
+#battle-section { display: flex; gap: 15px; width: 715px; align-items: stretch; }
+
+#field {
+    width: 450px; height: 180px; background-color: #e0f7fa; 
+    border: 4px solid #4dd0e1; position: relative; box-sizing: border-box;
+    display: flex; justify-content: flex-end; align-items: flex-end; padding: 15px;
+}
+#field-title {
+    position: absolute; top: 10px; left: 15px; margin: 0; color: #006064; 
+    font-size: 18px; font-weight: bold;
+}
+
+#enemy-container { display: flex; flex-direction: column; align-items: center; gap: 10px; z-index: 5; }
+
+#enemy {
+    width: 100px; height: 100px; background-size: contain; background-repeat: no-repeat;
+    background-position: center; filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.3));
+    mix-blend-mode: multiply; 
+}
+
+#enemy-hp-bar {
+    width: 120px; height: 15px; background-color: #c0392b; border-radius: 10px;
+    overflow: hidden; border: 2px solid #fff; position: relative;
+}
+#enemy-hp-fill { height: 100%; background-color: #2ecc71; width: 100%; transition: width 0.3s; }
+#enemy-hp-text {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0; text-align: center;
+    line-height: 15px; font-size: 10px; font-weight: bold; text-shadow: 1px 1px 1px black; color: white;
+}
+
+#battle-log {
+    width: 250px; height: 180px; background-color: rgba(0,0,0,0.8); color: #bdc3c7;
+    border-radius: 10px; padding: 10px; box-sizing: border-box; font-size: 13px; overflow-y: auto;
+}
+.log-highlight { color: #f1c40f; font-weight: bold; }
+.log-damage { color: #e74c3c; font-weight: bold; }
+
+#board { 
+    display: grid; grid-template-columns: repeat(10, 65px); gap: 5px; 
+    background-color: #95a5a6; padding: 10px; border-radius: 10px; width: 715px; box-sizing: border-box;
+}
+.cell { width: 65px; height: 65px; background-color: #ffffff; border-radius: 5px; display: flex; justify-content: center; align-items: center; }
+
+.item { 
+    width: 55px; height: 55px; cursor: grab; background-color: transparent !important;
+    background-size: contain; background-position: center; background-repeat: no-repeat;
+    filter: drop-shadow(0px 3px 2px rgba(0,0,0,0.5)); mix-blend-mode: multiply; 
+}
+
+/* 🌟 적 타격 모션 애니메이션 (지진 효과 + 붉은색 번쩍임) */
+@keyframes shake-hit {
+    0% { transform: scale(1) translate(0, 0); filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.3)) brightness(1); }
+    20% { transform: scale(0.9) translate(-5px, 5px); filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.3)) brightness(0.5) sepia(1) hue-rotate(-50deg) saturate(5); }
+    40% { transform: scale(0.95) translate(5px, -5px); filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.3)) brightness(1); }
+    60% { transform: scale(0.9) translate(-5px, -5px); filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.3)) brightness(0.5) sepia(1) hue-rotate(-50deg) saturate(5); }
+    80% { transform: scale(0.95) translate(5px, 5px); filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.3)) brightness(1); }
+    100% { transform: scale(1) translate(0, 0); filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.3)) brightness(1); }
+}
+
+.hit-effect {
+    animation: shake-hit 0.4s ease-in-out;
+}
